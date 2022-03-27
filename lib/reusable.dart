@@ -6,17 +6,21 @@ class CardWidget extends StatelessWidget {
   //   Key? key,
   // }) : super(key: key);
   final Widget? cardChild;
+  // final Function onTaps;
   CardWidget({this.cardChild});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // color: kActiveCardColor,
-      margin: EdgeInsets.all(15.0),
-      child: cardChild,
-      decoration: BoxDecoration(
-        color: kActiveCardColor,
-        borderRadius: BorderRadius.circular(15),
+    return GestureDetector(
+      onTap: (){},
+      child: Container(
+        // color: kActiveCardColor,
+        margin: EdgeInsets.all(15.0),
+        child: cardChild,
+        decoration: BoxDecoration(
+          color: kActiveCardColor,
+          borderRadius: BorderRadius.circular(15),
+        ),
       ),
     );
   }
