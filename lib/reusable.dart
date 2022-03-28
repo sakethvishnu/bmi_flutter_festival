@@ -6,19 +6,20 @@ class CardWidget extends StatelessWidget {
   //   Key? key,
   // }) : super(key: key);
   final Widget? cardChild;
-  // final Function onTaps;
-  CardWidget({this.cardChild});
+  final VoidCallback? onTaps;
+  final Color colors;
+  CardWidget({this.cardChild,this.onTaps,required this.colors});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: onTaps,
       child: Container(
         // color: kActiveCardColor,
         margin: EdgeInsets.all(15.0),
         child: cardChild,
         decoration: BoxDecoration(
-          color: kActiveCardColor,
+          color: colors,
           borderRadius: BorderRadius.circular(15),
         ),
       ),
@@ -49,6 +50,27 @@ class IconText extends StatelessWidget {
         ),
         Text(txt.toUpperCase(),style: kLabelStyle,),
       ],
+    );
+  }
+}
+
+class IconsButton extends StatelessWidget {
+
+  final IconData icons;
+  final VoidCallback? onClick;
+  IconsButton({required this.icons,required this.onClick});
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onClick,
+      child: Icon(icons),
+      fillColor: Color(0xFF8D8E98),
+      shape: CircleBorder(),
+      constraints: BoxConstraints.tightFor(
+          width: 50,
+          height: 50
+      ),
     );
   }
 }
